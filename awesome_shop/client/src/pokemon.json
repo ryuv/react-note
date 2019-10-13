@@ -1,0 +1,511 @@
+{
+  "contractName": "pokemon",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "buyPokemon",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"buyPokemon\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":\"pokemon\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":{\"keccak256\":\"0x9c7be527fff8252f1d39d890559aefb47b3c9ccb48392020eac3b3b842af84a4\",\"urls\":[\"bzzr://bae8495655124dd906ab46333596fd5fd5e18cad2d2b29b54e22267c83cab733\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50605780601d6000396000f3fe608060405260043610601c5760003560e01c8063c78bc15f146021575b600080fd5b60276029565b005b56fea165627a7a72305820450585a50ace5835a0bd1845732a886bbb22b450961e8b0b8f1c0139beb7fc440029",
+  "deployedBytecode": "0x608060405260043610601c5760003560e01c8063c78bc15f146021575b600080fd5b60276029565b005b56fea165627a7a72305820450585a50ace5835a0bd1845732a886bbb22b450961e8b0b8f1c0139beb7fc440029",
+  "sourceMap": "25:302:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:302:1;;;;;;;",
+  "deployedSourceMap": "25:302:1:-;;;;;;;;;;;;;;;;;;;;;236:46;;;:::i;:::-;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\ncontract pokemon {\n\n    struct Poke {\n        uint id;\n        uint cost;\n        string name;\n        // ipfs 해쉬값\n        string photo;\n    }\n\n    mapping(uint => Poke) myPokemon;\n\n    // buy pokemon\n    function buyPokemon() payable external{\n\n    }\n\n    // get pokemon\n\n    // sell pokemon\n\n\n}",
+  "sourcePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
+  "ast": {
+    "absolutePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
+    "exportedSymbols": {
+      "pokemon": [
+        76
+      ]
+    },
+    "id": 77,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 76,
+        "linearizedBaseContracts": [
+          76
+        ],
+        "name": "pokemon",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "pokemon.Poke",
+            "id": 67,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "71:7:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "71:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "cost",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "88:9:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "88:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 64,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "107:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 63,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "107:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 66,
+                "name": "photo",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "154:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 65,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "154:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Poke",
+            "nodeType": "StructDefinition",
+            "scope": 76,
+            "src": "49:124:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 71,
+            "name": "myPokemon",
+            "nodeType": "VariableDeclaration",
+            "scope": 76,
+            "src": "179:31:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
+              "typeString": "mapping(uint256 => struct pokemon.Poke)"
+            },
+            "typeName": {
+              "id": 70,
+              "keyType": {
+                "id": 68,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "187:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "179:21:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
+                "typeString": "mapping(uint256 => struct pokemon.Poke)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 69,
+                "name": "Poke",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 67,
+                "src": "195:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Poke_$67_storage_ptr",
+                  "typeString": "struct pokemon.Poke"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 74,
+              "nodeType": "Block",
+              "src": "274:8:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 75,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "buyPokemon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "255:2:1"
+            },
+            "returnParameters": {
+              "id": 73,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "274:0:1"
+            },
+            "scope": 76,
+            "src": "236:46:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 77,
+        "src": "25:302:1"
+      }
+    ],
+    "src": "0:327:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
+    "exportedSymbols": {
+      "pokemon": [
+        76
+      ]
+    },
+    "id": 77,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 58,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:23:1"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 76,
+        "linearizedBaseContracts": [
+          76
+        ],
+        "name": "pokemon",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "pokemon.Poke",
+            "id": 67,
+            "members": [
+              {
+                "constant": false,
+                "id": 60,
+                "name": "id",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "71:7:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 59,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "71:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 62,
+                "name": "cost",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "88:9:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 61,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "88:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 64,
+                "name": "name",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "107:11:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 63,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "107:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 66,
+                "name": "photo",
+                "nodeType": "VariableDeclaration",
+                "scope": 67,
+                "src": "154:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 65,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "154:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Poke",
+            "nodeType": "StructDefinition",
+            "scope": 76,
+            "src": "49:124:1",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 71,
+            "name": "myPokemon",
+            "nodeType": "VariableDeclaration",
+            "scope": 76,
+            "src": "179:31:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
+              "typeString": "mapping(uint256 => struct pokemon.Poke)"
+            },
+            "typeName": {
+              "id": 70,
+              "keyType": {
+                "id": 68,
+                "name": "uint",
+                "nodeType": "ElementaryTypeName",
+                "src": "187:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "179:21:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
+                "typeString": "mapping(uint256 => struct pokemon.Poke)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 69,
+                "name": "Poke",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 67,
+                "src": "195:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Poke_$67_storage_ptr",
+                  "typeString": "struct pokemon.Poke"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 74,
+              "nodeType": "Block",
+              "src": "274:8:1",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 75,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "buyPokemon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 72,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "255:2:1"
+            },
+            "returnParameters": {
+              "id": 73,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "274:0:1"
+            },
+            "scope": 76,
+            "src": "236:46:1",
+            "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "external"
+          }
+        ],
+        "scope": 77,
+        "src": "25:302:1"
+      }
+    ],
+    "src": "0:327:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.8+commit.23d335f2.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x4755e6017A6C9e82A2E337FB89442492Bb066fbb",
+      "transactionHash": "0xd1aed482b4839a9494a479eb32f92b7ec16dde1ba2bc9d0b63fbc189a1d9f878"
+    }
+  },
+  "schemaVersion": "3.0.16",
+  "updatedAt": "2019-10-12T16:45:47.257Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
