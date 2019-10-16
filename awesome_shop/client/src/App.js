@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import Web3 from 'web3';
 import PokemonContract from './pokemon.json';
-import './shop.css'
+import './shop.css';
 import "./App.css";
+import Poketmon from './Poketmon.js';
 
 class App extends Component {
 
   async componentWillMount() {
+    await this.loadWeb3()
     await this.loadBlockchainData()
-    await this.instantiateContract()
   }
 
-  async loadBlockchainData() {
+  async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
@@ -24,40 +25,56 @@ class App extends Component {
     }
   }
 
-  instantiateContract() {
-    const contract = require("truffle-contract");
-    const pokemonContract = contract(PokemonContract);
-    pokemonContract.setProvider(this.state.web3.currentProvider);
+  async loadBlockchainData() {
+    const web3 = window.web3
+    const accounts = await web3.eth.getAccounts()
+    this.setState({ myAccount: accounts[0] })
+    const networkId = await web3.eth.net.getId()
 
-
-    this.state.web3.eth.getAccounts((error, accounts) => {
-      if (!error) {
-        pokemonContract.deployed().then(instance => {
-          this.setState({ pokeInstance: instance, myAccount: accounts[0] });
-          console.log('log:'+this.state.myAccount);
-        });
-      }
-    });
+    const networkData = PokemonContract.networks[networkId]
+    if (networkData) {
+      const contract = new web3.eth.Contract(PokemonContract.abi, PokemonContract.networks['5777'].address)
+      this.setState({ contract })
+      console.dir(this.state.contract);
+      const myPokemonList = await contract.methods.getPokemon().call()
+      this.setState({ myPokemonList })
+      console.log(this.state.myPokemonList)
+    } else {
+      window.alert('Smart contract not deployed to detected network!')
+    }
   }
 
   constructor(props) {
     super(props);
 
     this.state = {
-      pokeInstance: null,
+      contract: null,
       myAccount: '',
       web3: null,
-      pokemonList: []
+      pokemonList: [],
+      myPokemonList: []
     };
   }
 
-  async buyPokemon(){
-    console.log("hello")
+  async buyPokemon(id,cost,name){
+     const web3 = window.web3
+     const accounts = await web3.eth.getAccounts()
+
+    const networkId = await web3.eth.net.getId()
+
+    const networkData = PokemonContract.networks[networkId]
+    if (networkData) {
+      console.log(id,cost,name);
+      const contract = new web3.eth.Contract(PokemonContract.abi, PokemonContract.networks['5777'].address)
+      await contract.methods.buyPokemon(id,cost,name).send({from:accounts[0]},function(error, transactionHash){
+        console.log(transactionHash)
+      })
+    } else {
+      window.alert('Smart contract not deployed to detected network!')
+    }
   }
 
-
-
-
+  // FRONT_END
   componentDidMount() {
     this.getPoke();
   }
@@ -93,9 +110,28 @@ class App extends Component {
       //console.log(url);
       const res = await fetch(url);
       const pokemon = await res.json();
-      createPokemonCard(pokemon,id);
+
+      const poke_types = pokemon.types.map(type => type.type.name);
+      const type = main_types.find(type => poke_types.indexOf(type) > -1);
+      const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+      const color = colors[type];
+      const cost = pokemon.base_experience;
+      const arr = {
+        "id" : id,
+        "poke_types" : poke_types,
+        "type" : type,
+        "name" : name,
+        "color" : color,
+        "cost" : cost
+      };
+      
+      this.setState({
+        pokemonList: this.state.pokemonList.concat(arr)
+      })
+
     };
 
+    //Pokemon Ball button
     const floating_btn = document.querySelector('.floating-btn');
     const close_btn = document.querySelector('.close-btn');
     const social_panel_container = document.querySelector('.social-panel-container');
@@ -108,51 +144,29 @@ class App extends Component {
       social_panel_container.classList.remove('visible')
     });
 
-    function createPokemonCard(pokemon,id) {
-      const poke_container = document.querySelector(".poke-container");
-      const pokemonEl = document.createElement('div');
-      pokemonEl.classList.add('pokemon');
-      pokemonEl.classList.add('id'+id);
-      console.dir(pokemonEl);
 
-      const poke_types = pokemon.types.map(type => type.type.name);
-      const type = main_types.find(type => poke_types.indexOf(type) > -1);
-      const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-      const color = colors[type];
-      const cost = pokemon.base_experience/50;
-
-      pokemonEl.style.backgroundColor = color;
-
-      const pokeInnerHTML = `
-        <div class="img-container">
-            <img src="https://pokeres.bastionbot.org/images/pokemon/${
-        pokemon.id
-        }.png" alt="${name}" />
-        </div>
-        <div class="info">
-            <span class="number">#${pokemon.id
-          .toString()
-          .padStart(3, '0')}</span>
-            <h3 class="name">${name}</h3>
-            <small class="type">Type: <span>${type}</span></small>
-            <h3 class="name" >💰${cost} ETH</h3>
-        </div>
-    `;
-
-      pokemonEl.innerHTML = pokeInnerHTML;
-
-      poke_container.appendChild(pokemonEl);
-    }
     fetchPokemons();
   };
 
 
   render() {
-
+    const {pokemonList} = this.state;
     return (
       <div>
         <h2 className="pokemon"> Buy Pokémon with Blockchain💎</h2>
-        <div className="poke-container"></div>
+        <div className="poke-container" >
+            {pokemonList.map(a => (
+              <Poketmon
+                id={a.id}
+                poke_types={a.poke_types}
+                color={a.color}
+                name={a.name}
+                type={a.type}
+                cost={a.cost}
+                onClick={this.buyPokemon}
+              />
+            ))}
+        </div>
 
 
         <div class="social-panel-container">

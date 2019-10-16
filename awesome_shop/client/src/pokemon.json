@@ -2,30 +2,107 @@
   "contractName": "pokemon",
   "abi": [
     {
-      "constant": false,
+      "constant": true,
       "inputs": [],
+      "name": "pokeCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "id",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "cost",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "name": "pokeCreate",
+      "type": "event"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_id",
+          "type": "uint256"
+        },
+        {
+          "name": "_cost",
+          "type": "uint256"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        }
+      ],
       "name": "buyPokemon",
       "outputs": [],
       "payable": true,
       "stateMutability": "payable",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getPokemon",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"buyPokemon\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":\"pokemon\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":{\"keccak256\":\"0x9c7be527fff8252f1d39d890559aefb47b3c9ccb48392020eac3b3b842af84a4\",\"urls\":[\"bzzr://bae8495655124dd906ab46333596fd5fd5e18cad2d2b29b54e22267c83cab733\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50605780601d6000396000f3fe608060405260043610601c5760003560e01c8063c78bc15f146021575b600080fd5b60276029565b005b56fea165627a7a72305820450585a50ace5835a0bd1845732a886bbb22b450961e8b0b8f1c0139beb7fc440029",
-  "deployedBytecode": "0x608060405260043610601c5760003560e01c8063c78bc15f146021575b600080fd5b60276029565b005b56fea165627a7a72305820450585a50ace5835a0bd1845732a886bbb22b450961e8b0b8f1c0139beb7fc440029",
-  "sourceMap": "25:302:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:302:1;;;;;;;",
-  "deployedSourceMap": "25:302:1:-;;;;;;;;;;;;;;;;;;;;;236:46;;;:::i;:::-;;;:::o",
-  "source": "pragma solidity ^0.5.0;\n\ncontract pokemon {\n\n    struct Poke {\n        uint id;\n        uint cost;\n        string name;\n        // ipfs 해쉬값\n        string photo;\n    }\n\n    mapping(uint => Poke) myPokemon;\n\n    // buy pokemon\n    function buyPokemon() payable external{\n\n    }\n\n    // get pokemon\n\n    // sell pokemon\n\n\n}",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"name\":\"_id\",\"type\":\"uint256\"},{\"name\":\"_cost\",\"type\":\"uint256\"},{\"name\":\"_name\",\"type\":\"string\"}],\"name\":\"buyPokemon\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"pokeCount\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getPokemon\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"uint256\"},{\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"name\":\"id\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"cost\",\"type\":\"uint256\"},{\"indexed\":false,\"name\":\"name\",\"type\":\"string\"}],\"name\":\"pokeCreate\",\"type\":\"event\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":\"pokemon\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/ryu/awesome_shop/contracts/pokemon.sol\":{\"keccak256\":\"0xe328b3d6f99a9d771f175430d3322cfda3338fda2a662d50ad72eae7bcd58728\",\"urls\":[\"bzzr://f317085f81ceef1f736eaf64bbdf6071e150f1705d180b13c5098d986d51952a\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b5061005d601960706040518060400160405280600781526020017f50696b616368750000000000000000000000000000000000000000000000000081525061006260201b60201c565b61019a565b604051806060016040528084815260200183815260200182815250600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082015181600001556020820151816001015560408201518160020190805190602001906100ec9291906100f5565b50905050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061013657805160ff1916838001178555610164565b82800160010185558215610164579182015b82811115610163578251825591602001919060010190610148565b5b5090506101719190610175565b5090565b61019791905b8082111561019357600081600090555060010161017b565b5090565b90565b6104af806101a96000396000f3fe6080604052600436106100345760003560e01c80631eff6ba1146100395780634221b2c21461010857806387e24c7214610133575b600080fd5b6101066004803603606081101561004f57600080fd5b8101908080359060200190929190803590602001909291908035906020019064010000000081111561008057600080fd5b82018360208201111561009257600080fd5b803590602001918460018302840111640100000000831117156100b457600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506101d1565b005b34801561011457600080fd5b5061011d610264565b6040518082815260200191505060405180910390f35b34801561013f57600080fd5b5061014861026a565b6040518084815260200183815260200180602001828103825283818151815260200191508051906020019080838360005b83811015610194578082015181840152602081019050610179565b50505050905090810190601f1680156101c15780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b604051806060016040528084815260200183815260200182815250600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000820151816000015560208201518160010155604082015181600201908051906020019061025b9291906103de565b50905050505050565b60005481565b6000806060600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000154600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201808054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103cc5780601f106103a1576101008083540402835291602001916103cc565b820191906000526020600020905b8154815290600101906020018083116103af57829003601f168201915b50505050509050925092509250909192565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061041f57805160ff191683800117855561044d565b8280016001018555821561044d579182015b8281111561044c578251825591602001919060010190610431565b5b50905061045a919061045e565b5090565b61048091905b8082111561047c576000816000905550600101610464565b5090565b9056fea165627a7a72305820cd13334728a0ff4d1e058eba5b63d82e6b7bbc1aaa10d04b47b12b7dfc1f419c0029",
+  "deployedBytecode": "0x6080604052600436106100345760003560e01c80631eff6ba1146100395780634221b2c21461010857806387e24c7214610133575b600080fd5b6101066004803603606081101561004f57600080fd5b8101908080359060200190929190803590602001909291908035906020019064010000000081111561008057600080fd5b82018360208201111561009257600080fd5b803590602001918460018302840111640100000000831117156100b457600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192905050506101d1565b005b34801561011457600080fd5b5061011d610264565b6040518082815260200191505060405180910390f35b34801561013f57600080fd5b5061014861026a565b6040518084815260200183815260200180602001828103825283818151815260200191508051906020019080838360005b83811015610194578082015181840152602081019050610179565b50505050905090810190601f1680156101c15780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b604051806060016040528084815260200183815260200182815250600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000820151816000015560208201518160010155604082015181600201908051906020019061025b9291906103de565b50905050505050565b60005481565b6000806060600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060000154600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154600260003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600201808054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103cc5780601f106103a1576101008083540402835291602001916103cc565b820191906000526020600020905b8154815290600101906020018083116103af57829003601f168201915b50505050509050925092509250909192565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061041f57805160ff191683800117855561044d565b8280016001018555821561044d579182015b8281111561044c578251825591602001919060010190610431565b5b50905061045a919061045e565b5090565b61048091905b8082111561047c576000816000905550600101610464565b5090565b9056fea165627a7a72305820cd13334728a0ff4d1e058eba5b63d82e6b7bbc1aaa10d04b47b12b7dfc1f419c0029",
+  "sourceMap": "25:784:1:-;;;72:1;48:25;;308:66;8:9:-1;5:2;;;30:1;27;20:12;5:2;308:66:1;339:28;350:2;353:3;339:28;;;;;;;;;;;;;;;;;:10;;;:28;;:::i;:::-;25:784;;422:145;539:21;;;;;;;;544:3;539:21;;;;548:5;539:21;;;;554:5;539:21;;;515:9;:21;525:10;515:21;;;;;;;;;;;;;;;:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;422:145;;;:::o;25:784::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "25:784:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;422:145;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;422:145:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;422:145:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;422:145:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;422:145:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;422:145:1;;;;;;;;;;;;;;;:::i;:::-;;48:25;;8:9:-1;5:2;;;30:1;27;20:12;5:2;48:25:1;;;:::i;:::-;;;;;;;;;;;;;;;;;;;592:192;;8:9:-1;5:2;;;30:1;27;20:12;5:2;592:192:1;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;592:192:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;422:145;539:21;;;;;;;;544:3;539:21;;;;548:5;539:21;;;;554:5;539:21;;;515:9;:21;525:10;515:21;;;;;;;;;;;;;;;:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;422:145;;;:::o;48:25::-;;;;:::o;592:192::-;636:7;645;654:13;687:9;:21;697:10;687:21;;;;;;;;;;;;;;;:24;;;713:9;:21;723:10;713:21;;;;;;;;;;;;;;;:26;;;741:9;:21;751:10;741:21;;;;;;;;;;;;;;;:26;;679:89;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;592:192;;;:::o;25:784::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.0;\n\ncontract pokemon {\n    uint public pokeCount = 0;\n    struct Poke {\n        uint id;\n        uint cost;\n        string name;\n    }\n    uint[] arr;\n\n    mapping(address => Poke) myPokemon;\n\n    event pokeCreate(\n        uint id,\n        uint cost,\n        string name\n    );\n    \n    constructor() public {\n        buyPokemon(25,112,\"Pikachu\");\n    }\n\n    // buy pokemon\n    // payble function\n    function buyPokemon(uint256 _id, uint256 _cost, string memory _name) payable public{\n        myPokemon[msg.sender] = Poke(_id,_cost,_name);\n    }\n\n    // get pokemon\n    function getPokemon() view external returns(uint256, uint256, string memory) {\n        return (myPokemon[msg.sender].id, myPokemon[msg.sender].cost, myPokemon[msg.sender].name);\n        \n    }\n\n    // sell pokemon\n\n\n}",
   "sourcePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
   "ast": {
     "absolutePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
     "exportedSymbols": {
       "pokemon": [
-        76
+        142
       ]
     },
-    "id": 77,
+    "id": 143,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -45,24 +122,67 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 76,
+        "id": 142,
         "linearizedBaseContracts": [
-          76
+          142
         ],
         "name": "pokemon",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "constant": false,
+            "id": 61,
+            "name": "pokeCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "48:25:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 59,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "48:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 60,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "72:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
             "canonicalName": "pokemon.Poke",
-            "id": 67,
+            "id": 68,
             "members": [
               {
                 "constant": false,
-                "id": 60,
+                "id": 63,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "71:7:1",
+                "scope": 68,
+                "src": "101:7:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -70,10 +190,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 59,
+                  "id": 62,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "71:4:1",
+                  "src": "101:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -84,11 +204,11 @@
               },
               {
                 "constant": false,
-                "id": 62,
+                "id": 65,
                 "name": "cost",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "88:9:1",
+                "scope": 68,
+                "src": "118:9:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -96,10 +216,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 61,
+                  "id": 64,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "88:4:1",
+                  "src": "118:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -110,11 +230,11 @@
               },
               {
                 "constant": false,
-                "id": 64,
+                "id": 67,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "107:11:1",
+                "scope": 68,
+                "src": "137:11:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -122,36 +242,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 63,
+                  "id": 66,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "107:6:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_storage_ptr",
-                    "typeString": "string"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 66,
-                "name": "photo",
-                "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "154:12:1",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_string_storage_ptr",
-                  "typeString": "string"
-                },
-                "typeName": {
-                  "id": 65,
-                  "name": "string",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "154:6:1",
+                  "src": "137:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -163,50 +257,86 @@
             ],
             "name": "Poke",
             "nodeType": "StructDefinition",
-            "scope": 76,
-            "src": "49:124:1",
+            "scope": 142,
+            "src": "79:76:1",
             "visibility": "public"
           },
           {
             "constant": false,
             "id": 71,
-            "name": "myPokemon",
+            "name": "arr",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "179:31:1",
+            "scope": 142,
+            "src": "160:10:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
-              "typeString": "mapping(uint256 => struct pokemon.Poke)"
+              "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+              "typeString": "uint256[]"
             },
             "typeName": {
-              "id": 70,
-              "keyType": {
-                "id": 68,
+              "baseType": {
+                "id": 69,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
-                "src": "187:4:1",
+                "src": "160:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "nodeType": "Mapping",
-              "src": "179:21:1",
+              "id": 70,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "160:6:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
-                "typeString": "mapping(uint256 => struct pokemon.Poke)"
+                "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                "typeString": "uint256[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 75,
+            "name": "myPokemon",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "177:34:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+              "typeString": "mapping(address => struct pokemon.Poke)"
+            },
+            "typeName": {
+              "id": 74,
+              "keyType": {
+                "id": 72,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "185:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "177:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                "typeString": "mapping(address => struct pokemon.Poke)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 69,
+                "id": 73,
                 "name": "Poke",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 67,
-                "src": "195:4:1",
+                "referencedDeclaration": 68,
+                "src": "196:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Poke_$67_storage_ptr",
+                  "typeIdentifier": "t_struct$_Poke_$68_storage_ptr",
                   "typeString": "struct pokemon.Poke"
                 }
               }
@@ -215,52 +345,874 @@
             "visibility": "internal"
           },
           {
+            "anonymous": false,
+            "documentation": null,
+            "id": 83,
+            "name": "pokeCreate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "244:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "244:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "indexed": false,
+                  "name": "cost",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "261:9:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "261:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "280:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "280:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "234:63:1"
+            },
+            "src": "218:80:1"
+          },
+          {
             "body": {
-              "id": 74,
+              "id": 92,
               "nodeType": "Block",
-              "src": "274:8:1",
-              "statements": []
+              "src": "329:45:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "3235",
+                        "id": 87,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "350:2:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_25_by_1",
+                          "typeString": "int_const 25"
+                        },
+                        "value": "25"
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "313132",
+                        "id": 88,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "353:3:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_112_by_1",
+                          "typeString": "int_const 112"
+                        },
+                        "value": "112"
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "50696b61636875",
+                        "id": 89,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "357:9:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_67a24fc590102263470c68f1be8166f51584c4b3a225eeb68316cb11233efbae",
+                          "typeString": "literal_string \"Pikachu\""
+                        },
+                        "value": "Pikachu"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_rational_25_by_1",
+                          "typeString": "int_const 25"
+                        },
+                        {
+                          "typeIdentifier": "t_rational_112_by_1",
+                          "typeString": "int_const 112"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_67a24fc590102263470c68f1be8166f51584c4b3a225eeb68316cb11233efbae",
+                          "typeString": "literal_string \"Pikachu\""
+                        }
+                      ],
+                      "id": 86,
+                      "name": "buyPokemon",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 114,
+                      "src": "339:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (uint256,uint256,string memory)"
+                      }
+                    },
+                    "id": 90,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "339:28:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 91,
+                  "nodeType": "ExpressionStatement",
+                  "src": "339:28:1"
+                }
+              ]
             },
             "documentation": null,
-            "id": 75,
+            "id": 93,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "319:2:1"
+            },
+            "returnParameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "329:0:1"
+            },
+            "scope": 142,
+            "src": "308:66:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 113,
+              "nodeType": "Block",
+              "src": "505:62:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 111,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 102,
+                        "name": "myPokemon",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 75,
+                        "src": "515:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                          "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                        }
+                      },
+                      "id": 105,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 103,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 157,
+                          "src": "525:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 104,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "525:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "515:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Poke_$68_storage",
+                        "typeString": "struct pokemon.Poke storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 107,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 95,
+                          "src": "544:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 108,
+                          "name": "_cost",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 97,
+                          "src": "548:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 109,
+                          "name": "_name",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 99,
+                          "src": "554:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        ],
+                        "id": 106,
+                        "name": "Poke",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "539:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Poke_$68_storage_ptr_$",
+                          "typeString": "type(struct pokemon.Poke storage pointer)"
+                        }
+                      },
+                      "id": 110,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "539:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Poke_$68_memory",
+                        "typeString": "struct pokemon.Poke memory"
+                      }
+                    },
+                    "src": "515:45:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Poke_$68_storage",
+                      "typeString": "struct pokemon.Poke storage ref"
+                    }
+                  },
+                  "id": 112,
+                  "nodeType": "ExpressionStatement",
+                  "src": "515:45:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 114,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "buyPokemon",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 72,
+              "id": 100,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "255:2:1"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 95,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "442:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "_cost",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "455:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "455:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "470:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "470:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:49:1"
             },
             "returnParameters": {
-              "id": 73,
+              "id": 101,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "274:0:1"
+              "src": "505:0:1"
             },
-            "scope": 76,
-            "src": "236:46:1",
+            "scope": 142,
+            "src": "422:145:1",
             "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "669:115:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 123,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "687:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 126,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 124,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "697:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 125,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "697:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "687:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 127,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "id",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 63,
+                        "src": "687:24:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 128,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "713:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 131,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 129,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "723:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 130,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "723:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "713:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 132,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "cost",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 65,
+                        "src": "713:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 133,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "741:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 136,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 134,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "751:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 135,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "751:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "741:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 137,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 67,
+                        "src": "741:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 138,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "686:82:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_string_storage_$",
+                      "typeString": "tuple(uint256,uint256,string storage ref)"
+                    }
+                  },
+                  "functionReturnParameters": 122,
+                  "id": 139,
+                  "nodeType": "Return",
+                  "src": "679:89:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokemon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "611:2:1"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "636:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "636:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "645:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 118,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "645:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 121,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "654:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 120,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "654:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "635:33:1"
+            },
+            "scope": 142,
+            "src": "592:192:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 77,
-        "src": "25:302:1"
+        "scope": 143,
+        "src": "25:784:1"
       }
     ],
-    "src": "0:327:1"
+    "src": "0:809:1"
   },
   "legacyAST": {
     "absolutePath": "/Users/ryu/awesome_shop/contracts/pokemon.sol",
     "exportedSymbols": {
       "pokemon": [
-        76
+        142
       ]
     },
-    "id": 77,
+    "id": 143,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -280,24 +1232,67 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 76,
+        "id": 142,
         "linearizedBaseContracts": [
-          76
+          142
         ],
         "name": "pokemon",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
+            "constant": false,
+            "id": 61,
+            "name": "pokeCount",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "48:25:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 59,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "48:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "30",
+              "id": 60,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "72:1:1",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_0_by_1",
+                "typeString": "int_const 0"
+              },
+              "value": "0"
+            },
+            "visibility": "public"
+          },
+          {
             "canonicalName": "pokemon.Poke",
-            "id": 67,
+            "id": 68,
             "members": [
               {
                 "constant": false,
-                "id": 60,
+                "id": 63,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "71:7:1",
+                "scope": 68,
+                "src": "101:7:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -305,10 +1300,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 59,
+                  "id": 62,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "71:4:1",
+                  "src": "101:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -319,11 +1314,11 @@
               },
               {
                 "constant": false,
-                "id": 62,
+                "id": 65,
                 "name": "cost",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "88:9:1",
+                "scope": 68,
+                "src": "118:9:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -331,10 +1326,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 61,
+                  "id": 64,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "88:4:1",
+                  "src": "118:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -345,11 +1340,11 @@
               },
               {
                 "constant": false,
-                "id": 64,
+                "id": 67,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "107:11:1",
+                "scope": 68,
+                "src": "137:11:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -357,36 +1352,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 63,
+                  "id": 66,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "107:6:1",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_storage_ptr",
-                    "typeString": "string"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 66,
-                "name": "photo",
-                "nodeType": "VariableDeclaration",
-                "scope": 67,
-                "src": "154:12:1",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_string_storage_ptr",
-                  "typeString": "string"
-                },
-                "typeName": {
-                  "id": 65,
-                  "name": "string",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "154:6:1",
+                  "src": "137:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -398,50 +1367,86 @@
             ],
             "name": "Poke",
             "nodeType": "StructDefinition",
-            "scope": 76,
-            "src": "49:124:1",
+            "scope": 142,
+            "src": "79:76:1",
             "visibility": "public"
           },
           {
             "constant": false,
             "id": 71,
-            "name": "myPokemon",
+            "name": "arr",
             "nodeType": "VariableDeclaration",
-            "scope": 76,
-            "src": "179:31:1",
+            "scope": 142,
+            "src": "160:10:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
-              "typeString": "mapping(uint256 => struct pokemon.Poke)"
+              "typeIdentifier": "t_array$_t_uint256_$dyn_storage",
+              "typeString": "uint256[]"
             },
             "typeName": {
-              "id": 70,
-              "keyType": {
-                "id": 68,
+              "baseType": {
+                "id": 69,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
-                "src": "187:4:1",
+                "src": "160:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "nodeType": "Mapping",
-              "src": "179:21:1",
+              "id": 70,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "160:6:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Poke_$67_storage_$",
-                "typeString": "mapping(uint256 => struct pokemon.Poke)"
+                "typeIdentifier": "t_array$_t_uint256_$dyn_storage_ptr",
+                "typeString": "uint256[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 75,
+            "name": "myPokemon",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "177:34:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+              "typeString": "mapping(address => struct pokemon.Poke)"
+            },
+            "typeName": {
+              "id": 74,
+              "keyType": {
+                "id": 72,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "185:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "177:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                "typeString": "mapping(address => struct pokemon.Poke)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 69,
+                "id": 73,
                 "name": "Poke",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 67,
-                "src": "195:4:1",
+                "referencedDeclaration": 68,
+                "src": "196:4:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Poke_$67_storage_ptr",
+                  "typeIdentifier": "t_struct$_Poke_$68_storage_ptr",
                   "typeString": "struct pokemon.Poke"
                 }
               }
@@ -450,43 +1455,865 @@
             "visibility": "internal"
           },
           {
+            "anonymous": false,
+            "documentation": null,
+            "id": 83,
+            "name": "pokeCreate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 82,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 77,
+                  "indexed": false,
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "244:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 76,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "244:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 79,
+                  "indexed": false,
+                  "name": "cost",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "261:9:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 78,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "261:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 81,
+                  "indexed": false,
+                  "name": "name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 83,
+                  "src": "280:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "280:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "234:63:1"
+            },
+            "src": "218:80:1"
+          },
+          {
             "body": {
-              "id": 74,
+              "id": 92,
               "nodeType": "Block",
-              "src": "274:8:1",
-              "statements": []
+              "src": "329:45:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "3235",
+                        "id": 87,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "350:2:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_25_by_1",
+                          "typeString": "int_const 25"
+                        },
+                        "value": "25"
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "313132",
+                        "id": 88,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "353:3:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_112_by_1",
+                          "typeString": "int_const 112"
+                        },
+                        "value": "112"
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "50696b61636875",
+                        "id": 89,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "357:9:1",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_67a24fc590102263470c68f1be8166f51584c4b3a225eeb68316cb11233efbae",
+                          "typeString": "literal_string \"Pikachu\""
+                        },
+                        "value": "Pikachu"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_rational_25_by_1",
+                          "typeString": "int_const 25"
+                        },
+                        {
+                          "typeIdentifier": "t_rational_112_by_1",
+                          "typeString": "int_const 112"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_67a24fc590102263470c68f1be8166f51584c4b3a225eeb68316cb11233efbae",
+                          "typeString": "literal_string \"Pikachu\""
+                        }
+                      ],
+                      "id": 86,
+                      "name": "buyPokemon",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 114,
+                      "src": "339:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_nonpayable$_t_uint256_$_t_uint256_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (uint256,uint256,string memory)"
+                      }
+                    },
+                    "id": 90,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "339:28:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 91,
+                  "nodeType": "ExpressionStatement",
+                  "src": "339:28:1"
+                }
+              ]
             },
             "documentation": null,
-            "id": 75,
+            "id": 93,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "319:2:1"
+            },
+            "returnParameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "329:0:1"
+            },
+            "scope": 142,
+            "src": "308:66:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 113,
+              "nodeType": "Block",
+              "src": "505:62:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 111,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "baseExpression": {
+                        "argumentTypes": null,
+                        "id": 102,
+                        "name": "myPokemon",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 75,
+                        "src": "515:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                          "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                        }
+                      },
+                      "id": 105,
+                      "indexExpression": {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 103,
+                          "name": "msg",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 157,
+                          "src": "525:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_message",
+                            "typeString": "msg"
+                          }
+                        },
+                        "id": 104,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "sender",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": null,
+                        "src": "525:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address_payable",
+                          "typeString": "address payable"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "515:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Poke_$68_storage",
+                        "typeString": "struct pokemon.Poke storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 107,
+                          "name": "_id",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 95,
+                          "src": "544:3:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 108,
+                          "name": "_cost",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 97,
+                          "src": "548:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 109,
+                          "name": "_name",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 99,
+                          "src": "554:5:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        ],
+                        "id": 106,
+                        "name": "Poke",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 68,
+                        "src": "539:4:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Poke_$68_storage_ptr_$",
+                          "typeString": "type(struct pokemon.Poke storage pointer)"
+                        }
+                      },
+                      "id": 110,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "539:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Poke_$68_memory",
+                        "typeString": "struct pokemon.Poke memory"
+                      }
+                    },
+                    "src": "515:45:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Poke_$68_storage",
+                      "typeString": "struct pokemon.Poke storage ref"
+                    }
+                  },
+                  "id": 112,
+                  "nodeType": "ExpressionStatement",
+                  "src": "515:45:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 114,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "buyPokemon",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 72,
+              "id": 100,
               "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "255:2:1"
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 95,
+                  "name": "_id",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "442:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 97,
+                  "name": "_cost",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "455:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "455:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 99,
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 114,
+                  "src": "470:19:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 98,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "470:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:49:1"
             },
             "returnParameters": {
-              "id": 73,
+              "id": 101,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "274:0:1"
+              "src": "505:0:1"
             },
-            "scope": 76,
-            "src": "236:46:1",
+            "scope": 142,
+            "src": "422:145:1",
             "stateMutability": "payable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "669:115:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "components": [
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 123,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "687:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 126,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 124,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "697:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 125,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "697:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "687:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 127,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "id",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 63,
+                        "src": "687:24:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 128,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "713:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 131,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 129,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "723:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 130,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "723:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "713:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 132,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "cost",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 65,
+                        "src": "713:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "expression": {
+                          "argumentTypes": null,
+                          "baseExpression": {
+                            "argumentTypes": null,
+                            "id": 133,
+                            "name": "myPokemon",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "741:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Poke_$68_storage_$",
+                              "typeString": "mapping(address => struct pokemon.Poke storage ref)"
+                            }
+                          },
+                          "id": 136,
+                          "indexExpression": {
+                            "argumentTypes": null,
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 134,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 157,
+                              "src": "751:3:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 135,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": null,
+                            "src": "751:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address_payable",
+                              "typeString": "address payable"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "741:21:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Poke_$68_storage",
+                            "typeString": "struct pokemon.Poke storage ref"
+                          }
+                        },
+                        "id": 137,
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "name",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 67,
+                        "src": "741:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage",
+                          "typeString": "string storage ref"
+                        }
+                      }
+                    ],
+                    "id": 138,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "686:82:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_uint256_$_t_uint256_$_t_string_storage_$",
+                      "typeString": "tuple(uint256,uint256,string storage ref)"
+                    }
+                  },
+                  "functionReturnParameters": 122,
+                  "id": 139,
+                  "nodeType": "Return",
+                  "src": "679:89:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 141,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getPokemon",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 115,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "611:2:1"
+            },
+            "returnParameters": {
+              "id": 122,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 117,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "636:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 116,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "636:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 119,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "645:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 118,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "645:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 121,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "654:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 120,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "654:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "635:33:1"
+            },
+            "scope": 142,
+            "src": "592:192:1",
+            "stateMutability": "view",
             "superFunction": null,
             "visibility": "external"
           }
         ],
-        "scope": 77,
-        "src": "25:302:1"
+        "scope": 143,
+        "src": "25:784:1"
       }
     ],
-    "src": "0:327:1"
+    "src": "0:809:1"
   },
   "compiler": {
     "name": "solc",
@@ -494,14 +2321,38 @@
   },
   "networks": {
     "5777": {
-      "events": {},
+      "events": {
+        "0x6598948cbd9f52d2759098f4cd3aedeb80de8084700b25a518eff34b6684c309": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "cost",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "name": "pokeCreate",
+          "type": "event",
+          "signature": "0x6598948cbd9f52d2759098f4cd3aedeb80de8084700b25a518eff34b6684c309"
+        }
+      },
       "links": {},
-      "address": "0x4755e6017A6C9e82A2E337FB89442492Bb066fbb",
-      "transactionHash": "0xd1aed482b4839a9494a479eb32f92b7ec16dde1ba2bc9d0b63fbc189a1d9f878"
+      "address": "0x789Fbe74cA3A85FFE0d04EAEB283fb47c441d12A",
+      "transactionHash": "0xc187ffb80d222b1db8c86a6808cf9386e99f6a3c8178a7c7b1cbf9cd3eb5ef79"
     }
   },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-10-12T16:45:47.257Z",
+  "updatedAt": "2019-10-15T13:11:27.191Z",
   "devdoc": {
     "methods": {}
   },
