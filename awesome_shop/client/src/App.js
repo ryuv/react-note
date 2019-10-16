@@ -66,9 +66,10 @@ class App extends Component {
     if (networkData) {
       console.log(id,cost,name);
       const contract = new web3.eth.Contract(PokemonContract.abi, PokemonContract.networks['5777'].address)
-      await contract.methods.buyPokemon(id,cost,name).send({from:accounts[0]},function(error, transactionHash){
-        console.log(transactionHash)
+      await contract.methods.buyPokemon(id,cost,name).send({from:accounts[0]}).then(function(receipt){
+        console.log(receipt);
       })
+
     } else {
       window.alert('Smart contract not deployed to detected network!')
     }
