@@ -1,2 +1,2 @@
-# weather_app
-Learning app
+# react-note
+note app
